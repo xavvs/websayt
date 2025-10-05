@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>websayt ni joswa :0</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #d2a2ff 0%, #f6dfff 100%);
+            font-family: 'Quicksand', 'Arial', sans-serif;
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .hero-section {
+            text-align: center;
+            color: white;
+            padding: 60px 20px;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        .hero-section h1 {
+            color: white;
+            font-size: 3.5rem;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(168, 75, 255, 0.8);
+            margin-bottom: 20px;
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        .hero-section p {
+            font-size: 1.3rem;
+            color: #ffffff;
+            text-shadow: 1px 1px 2px rgba(168, 75, 255, 0.8);
+            font-weight: 600;
+        }
+
+        .content-section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin: 30px auto;
+            max-width: 900px;
+            box-shadow: 0 10px 40px rgba(157, 80, 187, 0.3);
+            border: 3px solid #f3e5f5;
+        }
+
+        .photo-frame {
+            border: 12px solid #f3e5f5;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(157, 80, 187, 0.3);
+            overflow: hidden;
+            margin: 30px auto;
+            max-width: 800px;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .letter {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #333;
+            margin: 30px 0;
+        }
+
+        .things-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .things-list li {
+            background: linear-gradient(135deg, #da8cff 0%, #9a67ea 100%);
+            color: white;
+            padding: 15px 20px;
+            margin: 10px 0;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(157, 80, 187, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .things-list li:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(157, 80, 187, 0.4);
+        }
+
+        .things-list li i {
+            margin-right: 10px;
+        }
+
+        /* Memory Wall Styles */
+        .memory-wall {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .memory-card {
+            perspective: 1000px;
+            height: 300px;
+            cursor: pointer;
+        }
+
+        .memory-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .memory-card.flipped .memory-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .memory-card-front, .memory-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(157, 80, 187, 0.3);
+            border: 3px solid #f3e5f5;
+        }
+
+        .memory-card-front {
+            background: #fce4ec;
+            overflow: hidden;
+        }
+
+        .memory-card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .memory-card-back {
+            background: linear-gradient(135deg, #da8cff 0%, #9a67ea 100%);
+            color: white;
+            transform: rotateY(180deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .music-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .music-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #da8cff 0%, #9a67ea 100%);
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 20px rgba(157, 80, 187, 0.4);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .music-btn:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            .content-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1>Happy 18th Birthday!</h1>
+        <p>To the most amazing person in my life</p>
+    </div>
+
+    <!-- Love Letter Section -->
+    <div class="container">
+        <div class="content-section">
+            <h2 class="text-center mb-4" style="color: rgba(168, 75, 255, 0.8); font-weight: bold;">My Letter to You</h2>
+            <div class="letter">
+                <p>My Dearest Ashly Nicolle,</p>
+                <p>Happy 18th Birthday, Milove! This is the most special day, to the most special person in my life. Kaya sa pinakamamahal ko, nawa'y magustuhan mo itong munting sinulat ko :))</p>
+                <p>As you turn 18, marami ka pang mga bagay na mararanasan sa buhay, maaring hindi maging madali pero kakayanin, maaring hindi ganon kasaya, pero asahan mo na ako ang iyong makakasama. I pray to God that He takes care of you, Bless you, and Guide you to where your heart desires. That's beside me :)) I pray that all your goals and dreams in life happens when the time is right. Blessing comes at the most unexpected times, and I'm sure isa ka sa mga taong i-take yung opportunity na 'yon, because I know how hard working of a person you are, I see you love love :)) To my hardworking partner, I pray all the blessings there is the world has to offer, because you deserve it!</p>
+                <p>From the moment we met, binigyan mo ng kulay ang mundo ko, mga kasiyahan na dala ng presensya mo, at pagmamahal na nagmumula sa'yo. Ang mga ngiti mo ang nagbibigay liwanag sa kadiliman ko, at mga yakap mo ang nagsisilbing pahinga sa kapaguran ko. I will always love you the way I do, and take care of you as my whole. Palagi kitang susuportahan sa mga kagustuhan mo, at sa mga bagay na gusto mong makamit. Andito lang ako sa likod mo handing maging sandalan mo, at sandata mo sa oras na ikaw ay gulong-gulo. </p>
+                <p>
+Enjoy your day milove, and soon magkakasama narin ta'yo para icelebrate ang kaarawan mo. Bago ko wakasan ang sulat na may pagmamahal na nilalaman, nais ko malaman mo na iniibig kita ng tunay. To my answered prayer, Happiest Birthday to you! :)) I love you, milove!</p>
+                <p>With all my love,<br>Juswahh <3</p>
+            </div>
+        </div>
+
+        <!-- Our Photo Section -->
+        <div class="content-section">
+            <h2 class="text-center mb-4" style="color: rgba(168, 75, 255, 0.8);"> Juswa&Ashly: The feasibility study of 12 Computer and Social Science</h2>
+            <div class="photo-frame">
+                <img src="img/pic.jpg" alt="Our Photo">
+            </div>
+
+        </div>
+
+        <!-- Things That Remind Me of You -->
+        <div class="content-section">
+            <h2 class="text-center mb-4" style="color:rgba(168, 75, 255, 0.8);">Things That Remind Me of You</h2>
+            <ul class="things-list">
+                <li><i class="fa-solid fa-face-grin-hearts"></i> Cute Emoji - because you look so cute whenever you use these</li>
+                <li><i class="fa-solid fa-fan"></i> Flowers - I like giving you flowers</li>
+                <li><i class="fa-solid fa-whiskey-glass"></i> Milktea - I always remember because it's your favorite</li>
+                <li><i class="fas fa-heart"></i> The color purple - your favorite</li>
+                <li><i class="fas fa-star"></i> Stars at night - you make everything magical</li>
+                <li><i class="fas fa-book"></i> Every love story - because ours is my favorite</li>
+                <li><i class="fa-solid fa-bars"></i> Everything - because I love everything about us, kwento natin, at tungkol sa atin</li>
+            </ul>
+        </div>
+
+        <!-- Memory Wall -->
+        <div class="content-section">
+            <h2 class="text-center mb-4" style="color: rgba(168, 75, 255, 0.8);">Our Memory Wall</h2>
+            <p class="text-center text-muted">Click on each memory to reveal the story behind it!</p>
+            <div class="memory-wall">
+                <!-- Memory 1 -->
+                <div class="memory-card" onclick="this.classList.toggle('flipped')">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front">
+                            <img src="img/plaza.jpg" alt="Memory 1">
+                        </div>
+                        <div class="memory-card-back">
+                            <p><strong>Plaza Walk</strong><br><br>I like watching you tie your hair, specially when you wear that ribbon, because it suits you well.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Memory 2 -->
+                <div class="memory-card" onclick="this.classList.toggle('flipped')">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front">
+                            <img src="img/ek.jpg" alt="Memory 2">
+                        </div>
+                        <div class="memory-card-back">
+                            <p><strong>Enchanted Kingdom</strong><br><br>This was the photo you took. I remember watching you take that image, because you were as beautiful as the object you're shooting :)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Memory 4 -->
+                <div class="memory-card" onclick="this.classList.toggle('flipped')">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front">
+                            <img src="img/sm.jpg" alt="Memory 3">
+                        </div>
+                        <div class="memory-card-back">
+                            <p><strong>After Christmas Party</strong><br><br>I was so happy during this day, because after a tiring christmas party with our classmates, I got to take care of you without making you feel uncomfortable.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Memory 3 -->
+                <div class="memory-card" onclick="this.classList.toggle('flipped')">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front">
+                            <img src="img/kat.jpg" alt="Memory 4">
+                        </div>
+                        <div class="memory-card-back">
+                            <p><strong>First Date</strong><br><br>This will forever be my favorite memory, our first yet filled with so much comfort and love.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                    <div class="memory-card" onclick="this.classList.toggle('flipped')">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front">
+                            <img src="img/freedom.jpg" alt="Memory 5">
+                        </div>
+                        <div class="memory-card-back">
+                            <p><strong>After School Walk</strong><br><br>It makes me happy whenever I feel your touch, specially when we are walking together.</p>
+                        </div>
+                    </div>
+                </div>
+
+                
+                     <div class="memory-card" onclick="this.classList.toggle('flipped')">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front">
+                            <img src="img/feb14.jpg" alt="Memory 6">
+                        </div>
+                        <div class="memory-card-back">
+                            <p><strong>Hearts Day</strong><br><br>A quick side quest to surprise my loving woman, it is indeed Ashly's Day, because I love her every single day! </p>
+                        </div>
+                    </div>
+                </div>
+
+                     <div class="memory-card" onclick="this.classList.toggle('flipped')">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front">
+                            <img src="img/twomoons.jpg" alt="Memory 7">
+                        </div>
+                        <div class="memory-card-back">
+                            <p><strong>Lowkey TwoMoons Pic</strong><br><br>A not so long date, but filled with happiness @ Two Moons Cafe</p>
+                        </div>
+                    </div>
+                </div>
+
+                     <div class="memory-card" onclick="this.classList.toggle('flipped')">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front">
+                            <img src="img/mcdo.jpg" alt="Memory 8">
+                        </div>
+                        <div class="memory-card-back">
+                            <p><strong>Quick Mcdo Date</strong><br><br>Our biglaang ayaan after class, a very quick date is the remedy to a very tiring day indeed.</p>
+                        </div>
+                    </div>
+                </div>
+
+                     <div class="memory-card" onclick="this.classList.toggle('flipped')">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front">
+                            <img src="img/ebooth.jpg" alt="Memory 9">
+                        </div>
+                        <div class="memory-card-back">
+                            <p><strong>Online Photobooth</strong><br><br>A very cutesy online photobooth, a picture indeed paints a thousand words, and stores a million memories.</p>
+                        </div>
+                    </div>
+                </div>
+
+                     <div class="memory-card" onclick="this.classList.toggle('flipped')">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front">
+                            <img src="img/prom.jpg" alt="Memory 10">
+                        </div>
+                        <div class="memory-card-back">
+                            <p><strong>Seniors Night</strong><br><br>Our first dance, first formal event, and first sa marami pang time na very formal date (somewhat) </p>
+                        </div>
+                    </div>
+                </div>
+
+     <div class="memory-card" onclick="this.classList.toggle('flipped')">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front">
+                            <img src="img/grad.jpg" alt="Memory 11">
+                        </div>
+                        <div class="memory-card-back">
+                            <p><strong>Graduation Day</strong><br><br>Couple goals indeed, both with honors, and still excels in academics.</p>
+                        </div>
+                    </div>
+                </div>
+
+                     <div class="memory-card" onclick="this.classList.toggle('flipped')">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front">
+                            <img src="img/bday.jpg" alt="Memory 12">
+                        </div>
+                        <div class="memory-card-back">
+                            <p><strong>Birthday Gift</strong><br><br>Our date after your entrance exam, in which is also our celebration of my birthday! One of my happiest memories.</p>
+                        </div>
+                    </div>
+                </div>
+
+                     <div class="memory-card" onclick="this.classList.toggle('flipped')">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front">
+                            <img src="img/checkup.jpg" alt="Memory 13">
+                        </div>
+                        <div class="memory-card-back">
+                            <p><strong>SMMC MedCert</strong><br><br>Quick quality time using filters while waiting for the result of your tests.</p>
+                        </div>
+                    </div>
+                </div>
+
+                     <div class="memory-card" onclick="this.classList.toggle('flipped')">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front">
+                            <img src="img/kat2.jpg" alt="Memory 14">
+                        </div>
+                        <div class="memory-card-back">
+                            <p><strong>KAT Date</strong><br><br>Happy day because there is a date! A not so long date after your MedCert requirement, but filled with many memories.</p>
+                        </div>
+                    </div>
+                </div>
+
+                     <div class="memory-card" onclick="this.classList.toggle('flipped')">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front">
+                            <img src="img/kat3.jpg" alt="Memory 15">
+                        </div>
+                        <div class="memory-card-back">
+                            <p><strong>KAT Date AGAIN???</strong><br><br>Hindi naman halata na kat paborito nating place, but you look so cute here so I took a picture hehe.</p>
+                        </div>
+                    </div>
+                </div>
+
+                     <div class="memory-card" onclick="this.classList.toggle('flipped')">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front">
+                            <img src="img/roblox.jpg" alt="Memory 16">
+                        </div>
+                        <div class="memory-card-back">
+                            <p><strong>Roblox or Bullying (?)</strong><br><br>I love our quality time online, may it be rave or roblox, it makes me so happy and pangungulila fulfilled.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                     <div class="memory-card" onclick="this.classList.toggle('flipped')">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front">
+                            <img src="img/miming.jpg" alt="Memory 17">
+                        </div>
+                        <div class="memory-card-back">
+                            <p><strong>Swimming</strong><br><br>Many memories here! One of my most memorable day, the posion candy, miming bonding, and many more.</p>
+                        </div>
+                    </div>
+                </div>
+
+                
+                     <div class="memory-card" onclick="this.classList.toggle('flipped')">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front">
+                            <img src="img/tie.jpg" alt="Memory 18">
+                        </div>
+                        <div class="memory-card-back">
+                            <p><strong>Swimming Part2</strong><br><br>You look so cute here, very busy sa pagtali ng buhok ni poswah.</p>
+                        </div>
+                    </div>
+                </div>
+
+                
+                     <div class="memory-card" onclick="this.classList.toggle('flipped')">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front">
+                            <img src="img/alfresco.jpg" alt="Memory 18">
+                        </div>
+                        <div class="memory-card-back">
+                            <p><strong>Quick Date</strong><br><br>A very not so long date on alfresco, many chikas and landian, pero mas marami ang nilait na tao.</p>
+                        </div>
+                    </div>
+                </div>
+
+                
+                     <div class="memory-card" onclick="this.classList.toggle('flipped')">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front">
+                            <img src="img/kat4.jpg" alt="Memory 18">
+                        </div>
+                        <div class="memory-card-back">
+                            <p><strong>KAT AGAIN AND AGAIN???</strong><br><br>Our monthly KAT HAHAHHA I miss going to kat already, Let's go there again and take pics.</p>
+                        </div>
+                    </div>
+                </div>
+
+                    <div class="memory-card" onclick="this.classList.toggle('flipped')">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front">
+                            <img src="img/lebron.jpg" alt="Memory 19">
+                        </div>
+                        <div class="memory-card-back">
+                            <p><strong>Lebrongoloid</strong><br><br>Grabe ang bigtime mo dito, may kadate ka na NBA player sa Mcdo.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                    <div class="memory-card" onclick="this.classList.toggle('flipped')">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front">
+                            <img src="img/eo.jpg" alt="Memory 20">
+                        </div>
+                        <div class="memory-card-back">
+                            <p><strong>I love you, este Love your Eyes</strong><br><br>VERY VERY SPECIAL for me, sinamahan mo ako pumili ng eyeglass ko and nagustuhan ko sobra yung napili mo HAHHAHA dami din natin kulitan here.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                    <div class="memory-card" onclick="this.classList.toggle('flipped')">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front">
+                            <img src="img/antips.jpg" alt="Memory 21">
+                        </div>
+                        <div class="memory-card-back">
+                            <p><strong>Cram for Gov</strong><br><br>A very memorable day! One of my favorite as well, sobrang natutuwa ako sa left and right trope problem natin and marami pang memories na nagawa HAHHAHA.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                    <div class="memory-card" onclick="this.classList.toggle('flipped')">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front">
+                            <img src="img/22.jpg" alt="Memory 22">
+                        </div>
+                        <div class="memory-card-back">
+                            <p><strong>Cinema, Photobooth, and Food Date</strong><br><br>I enjoyed going out monthly but a very special one with you, I will be planning more in the future, with you.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Music Control -->
+    <div class="music-control">
+        <button class="music-btn" id="musicBtn" onclick="toggleMusic()">
+            <i class="fas fa-music" id="musicIcon"></i>
+        </button>
+    </div>
+
+    <!-- Background Music (Hidden) -->
+    <audio id="birthdayMusic" loop>
+        <source src="bday.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let isPlaying = false;
+        const music = document.getElementById('birthdayMusic');
+        const musicIcon = document.getElementById('musicIcon');
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                musicIcon.className = 'fas fa-music';
+            } else {
+                music.play();
+                musicIcon.className = 'fas fa-pause';
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Auto-play attempt (may be blocked by browser)
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                music.play().then(() => {
+                    isPlaying = true;
+                    musicIcon.className = 'fas fa-pause';
+                }).catch(() => {
+                    // Auto-play was blocked
+                    console.log('Auto-play blocked. Click the music button to play.');
+                });
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
