@@ -193,13 +193,20 @@
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
+
     <div class="hero-section">
         <h1>Happy 18th Birthday!</h1>
         <p>To the most amazing person in my life</p>
     </div>
 
-    <!-- Love Letter Section -->
+       
+        <div class="content-section">
+            <h2 class="text-center mb-4" style="color: rgba(168, 75, 255, 0.8);"> Juswa&Ashly: The feasibility study of 12 Computer and Social Science</h2>
+            <div class="photo-frame">
+                <img src="img/pic.jpg" alt="Our Photo">
+            </div>
+
+
     <div class="container">
         <div class="content-section">
             <h2 class="text-center mb-4" style="color: rgba(168, 75, 255, 0.8); font-weight: bold;">My Letter to You</h2>
@@ -214,16 +221,9 @@ Enjoy your day milove, and soon magkakasama narin ta'yo para icelebrate ang kaar
             </div>
         </div>
 
-        <!-- Our Photo Section -->
-        <div class="content-section">
-            <h2 class="text-center mb-4" style="color: rgba(168, 75, 255, 0.8);"> Juswa&Ashly: The feasibility study of 12 Computer and Social Science</h2>
-            <div class="photo-frame">
-                <img src="img/pic.jpg" alt="Our Photo">
-            </div>
 
         </div>
 
-        <!-- Things That Remind Me of You -->
         <div class="content-section">
             <h2 class="text-center mb-4" style="color:rgba(168, 75, 255, 0.8);">Things That Remind Me of You</h2>
             <ul class="things-list">
@@ -237,12 +237,12 @@ Enjoy your day milove, and soon magkakasama narin ta'yo para icelebrate ang kaar
             </ul>
         </div>
 
-        <!-- Memory Wall -->
+
         <div class="content-section">
             <h2 class="text-center mb-4" style="color: rgba(168, 75, 255, 0.8);">Our Memory Wall</h2>
             <p class="text-center text-muted">Click on each memory to reveal the story behind it!</p>
             <div class="memory-wall">
-                <!-- Memory 1 -->
+
                 <div class="memory-card" onclick="this.classList.toggle('flipped')">
                     <div class="memory-card-inner">
                         <div class="memory-card-front">
@@ -254,7 +254,7 @@ Enjoy your day milove, and soon magkakasama narin ta'yo para icelebrate ang kaar
                     </div>
                 </div>
 
-                <!-- Memory 2 -->
+          
                 <div class="memory-card" onclick="this.classList.toggle('flipped')">
                     <div class="memory-card-inner">
                         <div class="memory-card-front">
@@ -266,7 +266,7 @@ Enjoy your day milove, and soon magkakasama narin ta'yo para icelebrate ang kaar
                     </div>
                 </div>
 
-                <!-- Memory 4 -->
+               
                 <div class="memory-card" onclick="this.classList.toggle('flipped')">
                     <div class="memory-card-inner">
                         <div class="memory-card-front">
@@ -278,7 +278,7 @@ Enjoy your day milove, and soon magkakasama narin ta'yo para icelebrate ang kaar
                     </div>
                 </div>
 
-                <!-- Memory 3 -->
+           
                 <div class="memory-card" onclick="this.classList.toggle('flipped')">
                     <div class="memory-card-inner">
                         <div class="memory-card-front">
@@ -525,15 +525,15 @@ Enjoy your day milove, and soon magkakasama narin ta'yo para icelebrate ang kaar
         </div>
     </div>
 
-    <!-- Music Control -->
+
     <div class="music-control">
         <button class="music-btn" id="musicBtn" onclick="toggleMusic()">
             <i class="fas fa-music" id="musicIcon"></i>
         </button>
     </div>
 
-    <!-- Background Music (Hidden) -->
-    <audio id="birthdayMusic" loop>
+
+    <audio id="birthdayMusic" loop controls autoplay>
         <source src="bday.mp3" type="audio/mpeg">
     </audio>
 
@@ -554,7 +554,7 @@ Enjoy your day milove, and soon magkakasama narin ta'yo para icelebrate ang kaar
             isPlaying = !isPlaying;
         }
 
-        // Auto-play attempt (may be blocked by browser)
+
         window.addEventListener('load', function() {
             setTimeout(() => {
                 music.play().then(() => {
@@ -569,3 +569,4 @@ Enjoy your day milove, and soon magkakasama narin ta'yo para icelebrate ang kaar
     </script>
 </body>
 </html>
+
